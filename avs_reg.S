@@ -1054,7 +1054,7 @@ main:
 
 	mov	rax, r12
 
-	sub	eax, 1
+	sub	rax, 1
 
 	cdqe
 
