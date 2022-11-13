@@ -8,7 +8,7 @@
 
 	.type	compute, @function
 
-compute:
+compute: #пролог функции
 
 	endbr64
 
@@ -16,27 +16,27 @@ compute:
 
 	mov	rbp, rsp
 
-	mov	QWORD PTR -24[rbp], rdi
+	mov	QWORD PTR -24[rbp], rdi #получаем входные параметры
 
 	mov	QWORD PTR -32[rbp], rsi
 
 	mov	DWORD PTR -36[rbp], edx
 
-	mov	DWORD PTR -40[rbp], ecx
+	mov	DWORD PTR -40[rbp], ecx 
 
-	mov	DWORD PTR -4[rbp], 0
+	mov	DWORD PTR -4[rbp], 0 #присваиваем cur = 0
 
-	mov	DWORD PTR -16[rbp], 0
+	mov	DWORD PTR -16[rbp], 0 #присваиваем cnt = 0
 
-	mov	DWORD PTR -8[rbp], 0
+	mov	DWORD PTR -8[rbp], 0 #присваиваем j = 0
 
 	jmp	.L2
 
 .L10:
 
-	mov	DWORD PTR -4[rbp], 0
+	mov	DWORD PTR -4[rbp], 0 #присваиваем cur = 0
 
-	mov	DWORD PTR -12[rbp], 0
+	mov	DWORD PTR -12[rbp], 0 #присваиваем i = 0
 
 	jmp	.L3
 
@@ -642,7 +642,7 @@ compute:
 
 .L3:
 
-	mov	eax, DWORD PTR -12[rbp]
+	mov	eax, DWORD PTR -12[rbp] #проверяем, что i < str_leng
 
 	cmp	eax, DWORD PTR -36[rbp]
 
@@ -662,7 +662,7 @@ compute:
 
 .L2:
 
-	mov	eax, DWORD PTR -8[rbp]
+	mov	eax, DWORD PTR -8[rbp] #проверяем, что j < times
 
 	cmp	eax, DWORD PTR -40[rbp]
 
@@ -692,15 +692,15 @@ write:
 
 	mov	QWORD PTR -24[rbp], rdi
 
-	mov	DWORD PTR -28[rbp], esi
+	mov	DWORD PTR -28[rbp], esi #здесь лежит длина ответа
 
 	mov	QWORD PTR -40[rbp], rdx
 
-	mov	DWORD PTR -4[rbp], 0
+	mov	DWORD PTR -4[rbp], 0 #присваиваем i = 0
 
 	jmp	.L13
 
-.L14:
+.L14: #цикл для вывода ответа
 
 	mov	eax, DWORD PTR -4[rbp]
 
@@ -726,7 +726,7 @@ write:
 
 .L13:
 
-	mov	eax, DWORD PTR -4[rbp]
+	mov	eax, DWORD PTR -4[rbp] #проверяем, что i < длины ответы и продолжаем цикл
 
 	cmp	eax, DWORD PTR -28[rbp]
 
@@ -1172,7 +1172,7 @@ main:
 
 .L29:
 
-	mov	rdx, QWORD PTR -56[rbp]
+	mov	rdx, QWORD PTR -56[rbp] #выводим длительность работы программы, затем вызываем write для вывода ответа
 
 	mov	rax, QWORD PTR -64[rbp]
 
