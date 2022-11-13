@@ -16,15 +16,19 @@ compute:
 
 	mov	rbp, rsp
 
-	mov	QWORD PTR -24[rbp], rdi
+	mov	QWORD PTR -24[rbp], rdi #запомнили адрес buf
 
-	mov	QWORD PTR -32[rbp], rsi
+	mov     r15, rdi #теперь адрес buf лежит в r15
+
+	mov	QWORD PTR -32[rbp], rsi #запомнили адрес ans
+
+	mov     r14, rsi  #в r14 теперь лежит адрес ans
 
 	mov	DWORD PTR -36[rbp], edx
 
 	mov	DWORD PTR -40[rbp], ecx
 
-	mov	DWORD PTR -4[rbp], 0
+	mov	r13, 0 # в r13 теперь лежит cur
 
 	mov	DWORD PTR -16[rbp], 0
 
@@ -34,7 +38,7 @@ compute:
 
 .L10:
 
-	mov	DWORD PTR -4[rbp], 0
+	mov	r13, 0
 
 	mov	DWORD PTR -12[rbp], 0
 
@@ -46,7 +50,7 @@ compute:
 
 	movsx	rdx, eax
 
-	mov	rax, QWORD PTR -24[rbp]
+	mov	rax, r15
 
 	add	rax, rdx
 
@@ -60,7 +64,7 @@ compute:
 
 	movsx	rdx, eax
 
-	mov	rax, QWORD PTR -24[rbp]
+	mov	rax, r15
 
 	add	rax, rdx
 
@@ -74,7 +78,7 @@ compute:
 
 	movsx	rdx, eax
 
-	mov	rax, QWORD PTR -24[rbp]
+	mov	rax, r15
 
 	add	rax, rdx
 
@@ -88,7 +92,7 @@ compute:
 
 	movsx	rdx, eax
 
-	mov	rax, QWORD PTR -24[rbp]
+	mov	rax, r15
 
 	add	rax, rdx
 
@@ -102,7 +106,7 @@ compute:
 
 	movsx	rdx, eax
 
-	mov	rax, QWORD PTR -24[rbp]
+	mov	rax, r15
 
 	add	rax, rdx
 
@@ -116,7 +120,7 @@ compute:
 
 	movsx	rdx, eax
 
-	mov	rax, QWORD PTR -24[rbp]
+	mov	rax, r15
 
 	add	rax, rdx
 
@@ -130,7 +134,7 @@ compute:
 
 	movsx	rdx, eax
 
-	mov	rax, QWORD PTR -24[rbp]
+	mov	rax, r15
 
 	add	rax, rdx
 
@@ -144,7 +148,7 @@ compute:
 
 	movsx	rdx, eax
 
-	mov	rax, QWORD PTR -24[rbp]
+	mov	rax, r15
 
 	add	rax, rdx
 
@@ -174,11 +178,9 @@ compute:
 
 	lea	ecx, 48[rax]
 
-	mov	eax, DWORD PTR -4[rbp]
+	mov	rdx, r13
 
-	movsx	rdx, eax
-
-	mov	rax, QWORD PTR -32[rbp]
+	mov	rax, r14
 
 	add	rax, rdx
 
@@ -186,7 +188,7 @@ compute:
 
 	mov	BYTE PTR [rax], dl
 
-	add	DWORD PTR -4[rbp], 1
+	add	r13, 1
 
 	mov	edx, DWORD PTR -16[rbp]
 
@@ -222,11 +224,9 @@ compute:
 
 	lea	ecx, 48[rax]
 
-	mov	eax, DWORD PTR -4[rbp]
+	mov	rdx, r13
 
-	movsx	rdx, eax
-
-	mov	rax, QWORD PTR -32[rbp]
+	mov	rax, r14
 
 	add	rax, rdx
 
@@ -234,7 +234,7 @@ compute:
 
 	mov	BYTE PTR [rax], dl
 
-	add	DWORD PTR -4[rbp], 1
+	add	r13, 1
 
 	jmp	.L5
 
@@ -244,7 +244,7 @@ compute:
 
 	movsx	rdx, eax
 
-	mov	rax, QWORD PTR -24[rbp]
+	mov	rax, r15
 
 	add	rax, rdx
 
@@ -258,7 +258,7 @@ compute:
 
 	movsx	rdx, eax
 
-	mov	rax, QWORD PTR -24[rbp]
+	mov	rax, r15
 
 	add	rax, rdx
 
@@ -274,7 +274,7 @@ compute:
 
 	movsx	rdx, eax
 
-	mov	rax, QWORD PTR -24[rbp]
+	mov	rax, r15
 
 	add	rax, rdx
 
@@ -304,11 +304,9 @@ compute:
 
 	lea	ecx, 48[rax]
 
-	mov	eax, DWORD PTR -4[rbp]
+	mov	rdx, r13
 
-	movsx	rdx, eax
-
-	mov	rax, QWORD PTR -32[rbp]
+	mov	rax, r14
 
 	add	rax, rdx
 
@@ -316,7 +314,7 @@ compute:
 
 	mov	BYTE PTR [rax], dl
 
-	add	DWORD PTR -4[rbp], 1
+	add	r13, 1
 
 	mov	edx, DWORD PTR -16[rbp]
 
@@ -352,11 +350,9 @@ compute:
 
 	lea	ecx, 48[rax]
 
-	mov	eax, DWORD PTR -4[rbp]
+	mov	rdx, r13
 
-	movsx	rdx, eax
-
-	mov	rax, QWORD PTR -32[rbp]
+	mov	rax, r14
 
 	add	rax, rdx
 
@@ -364,7 +360,7 @@ compute:
 
 	mov	BYTE PTR [rax], dl
 
-	add	DWORD PTR -4[rbp], 1
+	add	r13, 1
 
 	jmp	.L5
 
@@ -374,7 +370,7 @@ compute:
 
 	movsx	rdx, eax
 
-	mov	rax, QWORD PTR -24[rbp]
+	mov	rax, r15
 
 	add	rax, rdx
 
@@ -388,7 +384,7 @@ compute:
 
 	movsx	rdx, eax
 
-	mov	rax, QWORD PTR -24[rbp]
+	mov	rax, r15
 
 	add	rax, rdx
 
@@ -402,7 +398,7 @@ compute:
 
 	movsx	rdx, eax
 
-	mov	rax, QWORD PTR -24[rbp]
+	mov	rax, r15
 
 	add	rax, rdx
 
@@ -416,7 +412,7 @@ compute:
 
 	movsx	rdx, eax
 
-	mov	rax, QWORD PTR -24[rbp]
+	mov	rax, r15
 
 	add	rax, rdx
 
@@ -430,7 +426,7 @@ compute:
 
 	movsx	rdx, eax
 
-	mov	rax, QWORD PTR -24[rbp]
+	mov	rax, r15
 
 	add	rax, rdx
 
@@ -444,7 +440,7 @@ compute:
 
 	movsx	rdx, eax
 
-	mov	rax, QWORD PTR -24[rbp]
+	mov	rax, r15
 
 	add	rax, rdx
 
@@ -458,7 +454,7 @@ compute:
 
 	movsx	rdx, eax
 
-	mov	rax, QWORD PTR -24[rbp]
+	mov	rax, r15
 
 	add	rax, rdx
 
@@ -488,11 +484,9 @@ compute:
 
 	lea	ecx, 48[rax]
 
-	mov	eax, DWORD PTR -4[rbp]
+	mov	rdx, r13
 
-	movsx	rdx, eax
-
-	mov	rax, QWORD PTR -32[rbp]
+	mov	rax, r14
 
 	add	rax, rdx
 
@@ -500,7 +494,7 @@ compute:
 
 	mov	BYTE PTR [rax], dl
 
-	add	DWORD PTR -4[rbp], 1
+	add	r13, 1
 
 	mov	eax, DWORD PTR -16[rbp]
 
@@ -548,11 +542,9 @@ compute:
 
 	lea	ecx, 48[rax]
 
-	mov	eax, DWORD PTR -4[rbp]
+	mov	rdx, r13
 
-	movsx	rdx, eax
-
-	mov	rax, QWORD PTR -32[rbp]
+	mov	rax, r14
 
 	add	rax, rdx
 
@@ -560,7 +552,7 @@ compute:
 
 	mov	BYTE PTR [rax], dl
 
-	add	DWORD PTR -4[rbp], 1
+	add	r13, 1
 
 	mov	edx, DWORD PTR -16[rbp]
 
@@ -596,11 +588,9 @@ compute:
 
 	lea	ecx, 48[rax]
 
-	mov	eax, DWORD PTR -4[rbp]
+	mov	rdx, r13
 
-	movsx	rdx, eax
-
-	mov	rax, QWORD PTR -32[rbp]
+	mov	rax, r14
 
 	add	rax, rdx
 
@@ -608,7 +598,7 @@ compute:
 
 	mov	BYTE PTR [rax], dl
 
-	add	DWORD PTR -4[rbp], 1
+	add	r13, 1
 
 	jmp	.L5
 
@@ -618,15 +608,15 @@ compute:
 
 	movsx	rdx, eax
 
-	mov	rax, QWORD PTR -24[rbp]
+	mov	rax, r15
 
 	add	rax, rdx
 
-	mov	edx, DWORD PTR -4[rbp]
+	mov	rdx, r13
 
-	movsx	rcx, edx
+	mov	rcx, rdx
 
-	mov	rdx, QWORD PTR -32[rbp]
+	mov	rdx, r14
 
 	add	rdx, rcx
 
@@ -634,7 +624,7 @@ compute:
 
 	mov	BYTE PTR [rdx], al
 
-	add	DWORD PTR -4[rbp], 1
+	add	r13, 1
 
 .L5:
 
@@ -648,11 +638,9 @@ compute:
 
 	jl	.L9
 
-	mov	eax, DWORD PTR -4[rbp]
+	mov	rdx, r13
 
-	movsx	rdx, eax
-
-	mov	rax, QWORD PTR -32[rbp]
+	mov	rax, r14
 
 	add	rax, rdx
 
@@ -668,7 +656,7 @@ compute:
 
 	jl	.L10
 
-	mov	eax, DWORD PTR -4[rbp]
+	mov	rax, r13
 
 	pop	rbp
 
@@ -1054,7 +1042,7 @@ main:
 
 	mov	rax, r12
 
-	sub	rax, 1
+	sub	eax, 1
 
 	cdqe
 
