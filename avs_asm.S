@@ -1052,7 +1052,7 @@ main:
 
 .L27:
 
-	mov	eax, DWORD PTR -4[rbp]
+	mov	eax, DWORD PTR -4[rbp] #меняем длину строки на 1 и закрываем файл
 
 	sub	eax, 1
 
@@ -1080,9 +1080,9 @@ main:
 
 	call	atoi@PLT
 
-	mov	DWORD PTR -28[rbp], eax
+	mov	DWORD PTR -28[rbp], eax #сначала достаем третий параметр, затем кладем его в rdi, потом в rax, затем вызываем atoi и получаем значение переменной times, она лежит на стеке
 
-	cmp	DWORD PTR -28[rbp], 0
+	cmp	DWORD PTR -28[rbp], 0 #смотрим, что times != 0
 
 	jne	.L28
 
@@ -1096,9 +1096,9 @@ main:
 
 .L28:
 
-	call	clock@PLT
+	call	clock@PLT #вызываем clock()
 
-	mov	QWORD PTR -40[rbp], rax
+	mov	QWORD PTR -40[rbp], rax #по этому адресу лежит переменная start
 
 	mov	ecx, DWORD PTR -28[rbp]
 
@@ -1110,13 +1110,13 @@ main:
 
 	mov	rdi, rax
 
-	call	compute
+	call	compute #передаем длину массива buf, указатель на начало, указатель на начало ответа и число повторений
 
-	mov	DWORD PTR -4[rbp], eax
+	mov	DWORD PTR -4[rbp], eax #запоминаем длину ответа
 
 	call	clock@PLT
 
-	mov	QWORD PTR -48[rbp], rax
+	mov	QWORD PTR -48[rbp], rax #получаем значение finish
 
 	pxor	xmm0, xmm0
 
