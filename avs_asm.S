@@ -1104,9 +1104,9 @@ main:
 
 	mov	edx, DWORD PTR -4[rbp]
 
-	lea	rsi, -4000064[rbp]
+	lea	rsi, -4000064[rbp] #передаем адрес начала ans
 
-	lea	rax, -1000064[rbp]
+	lea	rax, -1000064[rbp] #передаем адрес начала buf
 
 	mov	rdi, rax
 
