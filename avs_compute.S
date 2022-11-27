@@ -1,667 +1,109 @@
 	.file	"avs_2_compute.c"
-
 	.intel_syntax noprefix
-
 	.text
-
 	.globl	compute
-
 	.type	compute, @function
-
 compute:
-
+	endbr64
 	push	rbp
-
 	mov	rbp, rsp
-
-	mov	QWORD PTR -24[rbp], rdi #запомнили адрес buf
-
-	mov     r15, rdi #теперь адрес buf лежит в r15
-
-	mov	QWORD PTR -32[rbp], rsi #запомнили адрес ans
-
-	mov     r14, rsi  #в r14 теперь лежит адрес ans
-
-	mov	DWORD PTR -36[rbp], edx
-
-	mov	DWORD PTR -40[rbp], ecx
-
-	mov	r13, 0 # в r13 теперь лежит cur
-
-	mov	DWORD PTR -16[rbp], 0
-
-	mov	DWORD PTR -8[rbp], 0
-
-	jmp	.L2
-
-.L10:
-
-	mov	r13, 0
-
-	mov	DWORD PTR -12[rbp], 0
-
-	jmp	.L3
-
-.L9:
-
-	mov	eax, DWORD PTR -12[rbp]
-
-	movsx	rdx, eax
-
-	mov	rax, r15
-
-	add	rax, rdx
-
-	movzx	eax, BYTE PTR [rax]
-
-	cmp	al, 64
-
-	jle	.L4
-
-	mov	eax, DWORD PTR -12[rbp]
-
-	movsx	rdx, eax
-
-	mov	rax, r15
-
-	add	rax, rdx
-
-	movzx	eax, BYTE PTR [rax]
-
-	cmp	al, 89
-
-	jg	.L4
-
-	mov	eax, DWORD PTR -12[rbp]
-
-	movsx	rdx, eax
-
-	mov	rax, r15
-
-	add	rax, rdx
-
-	movzx	eax, BYTE PTR [rax]
-
-	cmp	al, 65
-
-	je	.L4
-
-	mov	eax, DWORD PTR -12[rbp]
-
-	movsx	rdx, eax
-
-	mov	rax, r15
-
-	add	rax, rdx
-
-	movzx	eax, BYTE PTR [rax]
-
-	cmp	al, 79
-
-	je	.L4
-
-	mov	eax, DWORD PTR -12[rbp]
-
-	movsx	rdx, eax
-
-	mov	rax, r15
-
-	add	rax, rdx
-
-	movzx	eax, BYTE PTR [rax]
-
-	cmp	al, 69
-
-	je	.L4
-
-	mov	eax, DWORD PTR -12[rbp]
-
-	movsx	rdx, eax
-
-	mov	rax, r15
-
-	add	rax, rdx
-
-	movzx	eax, BYTE PTR [rax]
-
-	cmp	al, 85
-
-	je	.L4
-
-	mov	eax, DWORD PTR -12[rbp]
-
-	movsx	rdx, eax
-
-	mov	rax, r15
-
-	add	rax, rdx
-
-	movzx	eax, BYTE PTR [rax]
-
-	cmp	al, 73
-
-	je	.L4
-
-	mov	eax, DWORD PTR -12[rbp]
-
-	movsx	rdx, eax
-
-	mov	rax, r15
-
-	add	rax, rdx
-
-	movzx	eax, BYTE PTR [rax]
-
-	movsx	eax, al
-
-	mov	DWORD PTR -16[rbp], eax
-
-	mov	eax, DWORD PTR -16[rbp]
-
-	movsx	rdx, eax
-
-	imul	rdx, rdx, 1717986919
-
-	shr	rdx, 32
-
-	sar	edx, 2
-
-	sar	eax, 31
-
-	mov	ecx, eax
-
-	mov	eax, edx
-
-	sub	eax, ecx
-
-	lea	ecx, 48[rax]
-
-	mov	rdx, r13
-
-	mov	rax, r14
-
-	add	rax, rdx
-
-	mov	edx, ecx
-
-	mov	BYTE PTR [rax], dl
-
-	add	r13, 1
-
-	mov	edx, DWORD PTR -16[rbp]
-
-	movsx	rax, edx
-
-	imul	rax, rax, 1717986919
-
-	shr	rax, 32
-
-	sar	eax, 2
-
-	mov	esi, edx
-
-	sar	esi, 31
-
-	sub	eax, esi
-
-	mov	ecx, eax
-
-	mov	eax, ecx
-
-	sal	eax, 2
-
-	add	eax, ecx
-
-	add	eax, eax
-
-	mov	ecx, edx
-
-	sub	ecx, eax
-
-	mov	eax, ecx
-
-	lea	ecx, 48[rax]
-
-	mov	rdx, r13
-
-	mov	rax, r14
-
-	add	rax, rdx
-
-	mov	edx, ecx
-
-	mov	BYTE PTR [rax], dl
-
-	add	r13, 1
-
-	jmp	.L5
-
-.L4:
-
-	mov	eax, DWORD PTR -12[rbp]
-
-	movsx	rdx, eax
-
-	mov	rax, r15
-
-	add	rax, rdx
-
-	movzx	eax, BYTE PTR [rax]
-
-	cmp	al, 98
-
-	je	.L6
-
-	mov	eax, DWORD PTR -12[rbp]
-
-	movsx	rdx, eax
-
-	mov	rax, r15
-
-	add	rax, rdx
-
-	movzx	eax, BYTE PTR [rax]
-
-	cmp	al, 99
-
-	jne	.L7
-
-.L6:
-
-	mov	eax, DWORD PTR -12[rbp]
-
-	movsx	rdx, eax
-
-	mov	rax, r15
-
-	add	rax, rdx
-
-	movzx	eax, BYTE PTR [rax]
-
-	movsx	eax, al
-
-	mov	DWORD PTR -16[rbp], eax
-
-	mov	eax, DWORD PTR -16[rbp]
-
-	movsx	rdx, eax
-
-	imul	rdx, rdx, 1717986919
-
-	shr	rdx, 32
-
-	sar	edx, 2
-
-	sar	eax, 31
-
-	mov	ecx, eax
-
-	mov	eax, edx
-
-	sub	eax, ecx
-
-	lea	ecx, 48[rax]
-
-	mov	rdx, r13
-
-	mov	rax, r14
-
-	add	rax, rdx
-
-	mov	edx, ecx
-
-	mov	BYTE PTR [rax], dl
-
-	add	r13, 1
-
-	mov	edx, DWORD PTR -16[rbp]
-
-	movsx	rax, edx
-
-	imul	rax, rax, 1717986919
-
-	shr	rax, 32
-
-	sar	eax, 2
-
-	mov	esi, edx
-
-	sar	esi, 31
-
-	sub	eax, esi
-
-	mov	ecx, eax
-
-	mov	eax, ecx
-
-	sal	eax, 2
-
-	add	eax, ecx
-
-	add	eax, eax
-
-	mov	ecx, edx
-
-	sub	ecx, eax
-
-	mov	eax, ecx
-
-	lea	ecx, 48[rax]
-
-	mov	rdx, r13
-
-	mov	rax, r14
-
-	add	rax, rdx
-
-	mov	edx, ecx
-
-	mov	BYTE PTR [rax], dl
-
-	add	r13, 1
-
-	jmp	.L5
-
-.L7:
-
-	mov	eax, DWORD PTR -12[rbp]
-
-	movsx	rdx, eax
-
-	mov	rax, r15
-
-	add	rax, rdx
-
-	movzx	eax, BYTE PTR [rax]
-
-	cmp	al, 99
-
-	jle	.L8
-
-	mov	eax, DWORD PTR -12[rbp]
-
-	movsx	rdx, eax
-
-	mov	rax, r15
-
-	add	rax, rdx
-
-	movzx	eax, BYTE PTR [rax]
-
-	cmp	al, 122
-
-	jg	.L8
-
-	mov	eax, DWORD PTR -12[rbp]
-
-	movsx	rdx, eax
-
-	mov	rax, r15
-
-	add	rax, rdx
-
-	movzx	eax, BYTE PTR [rax]
-
-	cmp	al, 111
-
-	je	.L8
-
-	mov	eax, DWORD PTR -12[rbp]
-
-	movsx	rdx, eax
-
-	mov	rax, r15
-
-	add	rax, rdx
-
-	movzx	eax, BYTE PTR [rax]
-
-	cmp	al, 101
-
-	je	.L8
-
-	mov	eax, DWORD PTR -12[rbp]
-
-	movsx	rdx, eax
-
-	mov	rax, r15
-
-	add	rax, rdx
-
-	movzx	eax, BYTE PTR [rax]
-
-	cmp	al, 117
-
-	je	.L8
-
-	mov	eax, DWORD PTR -12[rbp]
-
-	movsx	rdx, eax
-
-	mov	rax, r15
-
-	add	rax, rdx
-
-	movzx	eax, BYTE PTR [rax]
-
-	cmp	al, 105
-
-	je	.L8
-
-	mov	eax, DWORD PTR -12[rbp]
-
-	movsx	rdx, eax
-
-	mov	rax, r15
-
-	add	rax, rdx
-
-	movzx	eax, BYTE PTR [rax]
-
-	movsx	eax, al
-
-	mov	DWORD PTR -16[rbp], eax
-
-	mov	eax, DWORD PTR -16[rbp]
-
-	movsx	rdx, eax
-
-	imul	rdx, rdx, 1374389535
-
-	shr	rdx, 32
-
-	sar	edx, 5
-
-	sar	eax, 31
-
-	mov	ecx, eax
-
-	mov	eax, edx
-
-	sub	eax, ecx
-
-	lea	ecx, 48[rax]
-
-	mov	rdx, r13
-
-	mov	rax, r14
-
-	add	rax, rdx
-
-	mov	edx, ecx
-
-	mov	BYTE PTR [rax], dl
-
-	add	r13, 1
-
-	mov	eax, DWORD PTR -16[rbp]
-
-	movsx	rdx, eax
-
-	imul	rdx, rdx, 1717986919
-
-	shr	rdx, 32
-
-	sar	edx, 2
-
-	sar	eax, 31
-
-	sub	edx, eax
-
-	movsx	rax, edx
-
-	imul	rax, rax, 1717986919
-
-	shr	rax, 32
-
-	sar	eax, 2
-
-	mov	esi, edx
-
-	sar	esi, 31
-
-	sub	eax, esi
-
-	mov	ecx, eax
-
-	mov	eax, ecx
-
-	sal	eax, 2
-
-	add	eax, ecx
-
-	add	eax, eax
-
-	mov	ecx, edx
-
-	sub	ecx, eax
-
-	mov	eax, ecx
-
-	lea	ecx, 48[rax]
-
-	mov	rdx, r13
-
-	mov	rax, r14
-
-	add	rax, rdx
-
-	mov	edx, ecx
-
-	mov	BYTE PTR [rax], dl
-
-	add	r13, 1
-
-	mov	edx, DWORD PTR -16[rbp]
-
-	movsx	rax, edx
-
-	imul	rax, rax, 1717986919
-
-	shr	rax, 32
-
-	sar	eax, 2
-
-	mov	esi, edx
-
-	sar	esi, 31
-
-	sub	eax, esi
-
-	mov	ecx, eax
-
-	mov	eax, ecx
-
-	sal	eax, 2
-
-	add	eax, ecx
-
-	add	eax, eax
-
-	mov	ecx, edx
-
-	sub	ecx, eax
-
-	mov	eax, ecx
-
-	lea	ecx, 48[rax]
-
-	mov	rdx, r13
-
-	mov	rax, r14
-
-	add	rax, rdx
-
-	mov	edx, ecx
-
-	mov	BYTE PTR [rax], dl
-
-	add	r13, 1
-
-	jmp	.L5
-
-.L8:
-
-	mov	eax, DWORD PTR -12[rbp]
-
-	movsx	rdx, eax
-
-	mov	rax, r15
-
-	add	rax, rdx
-
-	mov	rdx, r13
-
-	mov	rcx, rdx
-
-	mov	rdx, r14
-
-	add	rdx, rcx
-
-	movzx	eax, BYTE PTR [rax]
-
-	mov	BYTE PTR [rdx], al
-
-	add	r13, 1
-
+	movapd	xmm4, xmm0 #в регистре xmm4 теперь лежит значение x
+	# в edi лежит переменная times
+	mov     r12, 0 # в r12 теперь лежит значение j
+	jmp	.L2 #заходим в тело цикла
 .L5:
-
-	add	DWORD PTR -12[rbp], 1
-
+	movapd	xmm0, xmm4
+	movapd	xmm5, xmm0 # в xmm5 теперь лежит значение res, изначально res = x
+	movapd	xmm0, xmm4
+	movapd	xmm6, xmm0 # в xmm6 теперь лежит лежит значение last, изначально last = x
+	movsd	xmm0, QWORD PTR .LC0[rip]
+	movapd	xmm7, xmm0 # в xmm7 теперь лежит значение n, изначально n = 1
+	jmp	.L3
+.L4:
+	movapd	xmm1, xmm7 #xmm1 = n
+	movsd	xmm0, QWORD PTR .LC0[rip] #xmm0 = 1
+	addsd	xmm1, xmm0 # xmm1 = n + 1
+	movapd	xmm0, xmm4 #xmm0 = x
+	divsd	xmm0, xmm1 #xmm0 = x / (n+1)
+	movapd	xmm1, xmm0 #xmm1 = x / (n+1)
+	mulsd	xmm1, xmm6 #xmm1 = (x / (n+1)) * last
+	movapd	xmm2, xmm7 #xmm2 = n
+	movsd	xmm0, QWORD PTR .LC1[rip] #xmm0 = 2
+	addsd	xmm2, xmm0 #xmm2 = n + 2
+	movapd	xmm0, xmm4 #xmm0 = x
+	divsd	xmm0, xmm2 #xmm0 = x / (n+2)
+	mulsd	xmm0, xmm1 #xmm0 = (x / (n+2)) * (x / (n+1)) * last
+	movapd	xmm6, xmm0 #last = xmm0 = (x / (n+2)) * (x / (n+1)) * last
+	movapd	xmm1, xmm7 #xmm1 = n
+	movsd	xmm0, QWORD PTR .LC1[rip] #xmm0 = 2
+	addsd	xmm0, xmm1 #xmm0 = n + 2
+	movapd	xmm7, xmm0 # n = n + 2
+	movapd	xmm0, xmm5 #xmm0 = res
+	addsd	xmm0, xmm6 #xmm0 = xmm0 + last = res + last
+	movapd	xmm5, xmm0 # res = res + last
 .L3:
-
-	mov	eax, DWORD PTR -12[rbp]
-
-	cmp	eax, DWORD PTR -36[rbp]
-
-	jl	.L9
-
-	mov	rdx, r13
-
-	mov	rax, r14
-
-	add	rax, rdx
-
-	mov	BYTE PTR [rax], 0
-
-	add	DWORD PTR -8[rbp], 1
-
+	movapd	xmm0, xmm6 #xmm0 = last
+	movq	xmm1, QWORD PTR .LC2[rip]  
+	andpd	xmm0, xmm1 # находим модуль xmm0, то есть модуль last
+	comisd	xmm0, QWORD PTR .LC3[rip] #сравниваем модуль last и 0.0001
+	ja	.L4 #если |last| > 0.0001 продолжаем итерации, иначе - выходим из цикла
+	add	r12, 1 #увеличиваем значение j
 .L2:
-
-	mov	eax, DWORD PTR -8[rbp]
-
-	cmp	eax, DWORD PTR -40[rbp]
-
-	jl	.L10
-
-	mov	rax, r13
-
+	mov	rax, r12
+	cmp	rax, rdi #сравниваем текущее значение j с times
+	jl	.L5 #если j >= times кладем в rax возвращаемое значение - значение переменной res, дальше пролог и завершение работы функции
+	movapd	xmm0, xmm5
+	movq	rax, xmm0
+	movq	xmm0, rax
 	pop	rbp
-
 	ret
-
 	.size	compute, .-compute
-
-	.ident	"GCC: (Ubuntu 11.2.0-19ubuntu1) 11.2.0"
-
+	.section	.rodata
+	.align 8
+.LC0:
+	.long	0
+	.long	1072693248
+	.align 8
+.LC1:
+	.long	0
+	.long	1073741824
+	.align 16
+.LC2:
+	.long	-1
+	.long	2147483647
+	.long	0
+	.long	0
+	.align 8
+.LC3:
+	.long	-350469331
+	.long	1058682594
+	.align 8
+.LC8:
+	.long	-4194304
+	.long	1105199103
+	.align 8
+.LC9:
+	.long	0
+	.long	1077149696
+	.align 8
+.LC15:
+	.long	0
+	.long	1093567616
+	.ident	"GCC: (Ubuntu 11.3.0-1ubuntu1~22.04) 11.3.0"
 	.section	.note.GNU-stack,"",@progbits
+	.section	.note.gnu.property,"a"
+	.align 8
+	.long	1f - 0f
+	.long	4f - 1f
+	.long	5
+0:
+	.string	"GNU"
+1:
+	.align 8
+	.long	0xc0000002
+	.long	3f - 2f
+2:
+	.long	0x3
+3:
+	.align 8
+4:
