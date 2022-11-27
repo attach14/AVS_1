@@ -1,1245 +1,324 @@
 	.file	"avs_2.c"
-
 	.intel_syntax noprefix
-
 	.text
-
 	.globl	compute
-
 	.type	compute, @function
-
 compute:
-
 	endbr64
-
 	push	rbp
-
 	mov	rbp, rsp
-
-	mov	QWORD PTR -24[rbp], rdi #запомнили адрес buf
-
-	mov     r15, rdi #теперь адрес buf лежит в r15
-
-	mov	QWORD PTR -32[rbp], rsi #запомнили адрес ans
-
-	mov     r14, rsi  #в r14 теперь лежит адрес ans
-
-	mov	DWORD PTR -36[rbp], edx
-
-	mov	DWORD PTR -40[rbp], ecx
-
-	mov	r13, 0 # в r13 теперь лежит cur
-
-	mov	DWORD PTR -16[rbp], 0
-
-	mov	DWORD PTR -8[rbp], 0
-
-	jmp	.L2
-
-.L10:
-
-	mov	r13, 0
-
-	mov	DWORD PTR -12[rbp], 0
-
-	jmp	.L3
-
-.L9:
-
-	mov	eax, DWORD PTR -12[rbp]
-
-	movsx	rdx, eax
-
-	mov	rax, r15
-
-	add	rax, rdx
-
-	movzx	eax, BYTE PTR [rax]
-
-	cmp	al, 64
-
-	jle	.L4
-
-	mov	eax, DWORD PTR -12[rbp]
-
-	movsx	rdx, eax
-
-	mov	rax, r15
-
-	add	rax, rdx
-
-	movzx	eax, BYTE PTR [rax]
-
-	cmp	al, 89
-
-	jg	.L4
-
-	mov	eax, DWORD PTR -12[rbp]
-
-	movsx	rdx, eax
-
-	mov	rax, r15
-
-	add	rax, rdx
-
-	movzx	eax, BYTE PTR [rax]
-
-	cmp	al, 65
-
-	je	.L4
-
-	mov	eax, DWORD PTR -12[rbp]
-
-	movsx	rdx, eax
-
-	mov	rax, r15
-
-	add	rax, rdx
-
-	movzx	eax, BYTE PTR [rax]
-
-	cmp	al, 79
-
-	je	.L4
-
-	mov	eax, DWORD PTR -12[rbp]
-
-	movsx	rdx, eax
-
-	mov	rax, r15
-
-	add	rax, rdx
-
-	movzx	eax, BYTE PTR [rax]
-
-	cmp	al, 69
-
-	je	.L4
-
-	mov	eax, DWORD PTR -12[rbp]
-
-	movsx	rdx, eax
-
-	mov	rax, r15
-
-	add	rax, rdx
-
-	movzx	eax, BYTE PTR [rax]
-
-	cmp	al, 85
-
-	je	.L4
-
-	mov	eax, DWORD PTR -12[rbp]
-
-	movsx	rdx, eax
-
-	mov	rax, r15
-
-	add	rax, rdx
-
-	movzx	eax, BYTE PTR [rax]
-
-	cmp	al, 73
-
-	je	.L4
-
-	mov	eax, DWORD PTR -12[rbp]
-
-	movsx	rdx, eax
-
-	mov	rax, r15
-
-	add	rax, rdx
-
-	movzx	eax, BYTE PTR [rax]
-
-	movsx	eax, al
-
-	mov	DWORD PTR -16[rbp], eax
-
-	mov	eax, DWORD PTR -16[rbp]
-
-	movsx	rdx, eax
-
-	imul	rdx, rdx, 1717986919
-
-	shr	rdx, 32
-
-	sar	edx, 2
-
-	sar	eax, 31
-
-	mov	ecx, eax
-
-	mov	eax, edx
-
-	sub	eax, ecx
-
-	lea	ecx, 48[rax]
-
-	mov	rdx, r13
-
-	mov	rax, r14
-
-	add	rax, rdx
-
-	mov	edx, ecx
-
-	mov	BYTE PTR [rax], dl
-
-	add	r13, 1
-
-	mov	edx, DWORD PTR -16[rbp]
-
-	movsx	rax, edx
-
-	imul	rax, rax, 1717986919
-
-	shr	rax, 32
-
-	sar	eax, 2
-
-	mov	esi, edx
-
-	sar	esi, 31
-
-	sub	eax, esi
-
-	mov	ecx, eax
-
-	mov	eax, ecx
-
-	sal	eax, 2
-
-	add	eax, ecx
-
-	add	eax, eax
-
-	mov	ecx, edx
-
-	sub	ecx, eax
-
-	mov	eax, ecx
-
-	lea	ecx, 48[rax]
-
-	mov	rdx, r13
-
-	mov	rax, r14
-
-	add	rax, rdx
-
-	mov	edx, ecx
-
-	mov	BYTE PTR [rax], dl
-
-	add	r13, 1
-
-	jmp	.L5
-
-.L4:
-
-	mov	eax, DWORD PTR -12[rbp]
-
-	movsx	rdx, eax
-
-	mov	rax, r15
-
-	add	rax, rdx
-
-	movzx	eax, BYTE PTR [rax]
-
-	cmp	al, 98
-
-	je	.L6
-
-	mov	eax, DWORD PTR -12[rbp]
-
-	movsx	rdx, eax
-
-	mov	rax, r15
-
-	add	rax, rdx
-
-	movzx	eax, BYTE PTR [rax]
-
-	cmp	al, 99
-
-	jne	.L7
-
-.L6:
-
-	mov	eax, DWORD PTR -12[rbp]
-
-	movsx	rdx, eax
-
-	mov	rax, r15
-
-	add	rax, rdx
-
-	movzx	eax, BYTE PTR [rax]
-
-	movsx	eax, al
-
-	mov	DWORD PTR -16[rbp], eax
-
-	mov	eax, DWORD PTR -16[rbp]
-
-	movsx	rdx, eax
-
-	imul	rdx, rdx, 1717986919
-
-	shr	rdx, 32
-
-	sar	edx, 2
-
-	sar	eax, 31
-
-	mov	ecx, eax
-
-	mov	eax, edx
-
-	sub	eax, ecx
-
-	lea	ecx, 48[rax]
-
-	mov	rdx, r13
-
-	mov	rax, r14
-
-	add	rax, rdx
-
-	mov	edx, ecx
-
-	mov	BYTE PTR [rax], dl
-
-	add	r13, 1
-
-	mov	edx, DWORD PTR -16[rbp]
-
-	movsx	rax, edx
-
-	imul	rax, rax, 1717986919
-
-	shr	rax, 32
-
-	sar	eax, 2
-
-	mov	esi, edx
-
-	sar	esi, 31
-
-	sub	eax, esi
-
-	mov	ecx, eax
-
-	mov	eax, ecx
-
-	sal	eax, 2
-
-	add	eax, ecx
-
-	add	eax, eax
-
-	mov	ecx, edx
-
-	sub	ecx, eax
-
-	mov	eax, ecx
-
-	lea	ecx, 48[rax]
-
-	mov	rdx, r13
-
-	mov	rax, r14
-
-	add	rax, rdx
-
-	mov	edx, ecx
-
-	mov	BYTE PTR [rax], dl
-
-	add	r13, 1
-
-	jmp	.L5
-
-.L7:
-
-	mov	eax, DWORD PTR -12[rbp]
-
-	movsx	rdx, eax
-
-	mov	rax, r15
-
-	add	rax, rdx
-
-	movzx	eax, BYTE PTR [rax]
-
-	cmp	al, 99
-
-	jle	.L8
-
-	mov	eax, DWORD PTR -12[rbp]
-
-	movsx	rdx, eax
-
-	mov	rax, r15
-
-	add	rax, rdx
-
-	movzx	eax, BYTE PTR [rax]
-
-	cmp	al, 122
-
-	jg	.L8
-
-	mov	eax, DWORD PTR -12[rbp]
-
-	movsx	rdx, eax
-
-	mov	rax, r15
-
-	add	rax, rdx
-
-	movzx	eax, BYTE PTR [rax]
-
-	cmp	al, 111
-
-	je	.L8
-
-	mov	eax, DWORD PTR -12[rbp]
-
-	movsx	rdx, eax
-
-	mov	rax, r15
-
-	add	rax, rdx
-
-	movzx	eax, BYTE PTR [rax]
-
-	cmp	al, 101
-
-	je	.L8
-
-	mov	eax, DWORD PTR -12[rbp]
-
-	movsx	rdx, eax
-
-	mov	rax, r15
-
-	add	rax, rdx
-
-	movzx	eax, BYTE PTR [rax]
-
-	cmp	al, 117
-
-	je	.L8
-
-	mov	eax, DWORD PTR -12[rbp]
-
-	movsx	rdx, eax
-
-	mov	rax, r15
-
-	add	rax, rdx
-
-	movzx	eax, BYTE PTR [rax]
-
-	cmp	al, 105
-
-	je	.L8
-
-	mov	eax, DWORD PTR -12[rbp]
-
-	movsx	rdx, eax
-
-	mov	rax, r15
-
-	add	rax, rdx
-
-	movzx	eax, BYTE PTR [rax]
-
-	movsx	eax, al
-
-	mov	DWORD PTR -16[rbp], eax
-
-	mov	eax, DWORD PTR -16[rbp]
-
-	movsx	rdx, eax
-
-	imul	rdx, rdx, 1374389535
-
-	shr	rdx, 32
-
-	sar	edx, 5
-
-	sar	eax, 31
-
-	mov	ecx, eax
-
-	mov	eax, edx
-
-	sub	eax, ecx
-
-	lea	ecx, 48[rax]
-
-	mov	rdx, r13
-
-	mov	rax, r14
-
-	add	rax, rdx
-
-	mov	edx, ecx
-
-	mov	BYTE PTR [rax], dl
-
-	add	r13, 1
-
-	mov	eax, DWORD PTR -16[rbp]
-
-	movsx	rdx, eax
-
-	imul	rdx, rdx, 1717986919
-
-	shr	rdx, 32
-
-	sar	edx, 2
-
-	sar	eax, 31
-
-	sub	edx, eax
-
-	movsx	rax, edx
-
-	imul	rax, rax, 1717986919
-
-	shr	rax, 32
-
-	sar	eax, 2
-
-	mov	esi, edx
-
-	sar	esi, 31
-
-	sub	eax, esi
-
-	mov	ecx, eax
-
-	mov	eax, ecx
-
-	sal	eax, 2
-
-	add	eax, ecx
-
-	add	eax, eax
-
-	mov	ecx, edx
-
-	sub	ecx, eax
-
-	mov	eax, ecx
-
-	lea	ecx, 48[rax]
-
-	mov	rdx, r13
-
-	mov	rax, r14
-
-	add	rax, rdx
-
-	mov	edx, ecx
-
-	mov	BYTE PTR [rax], dl
-
-	add	r13, 1
-
-	mov	edx, DWORD PTR -16[rbp]
-
-	movsx	rax, edx
-
-	imul	rax, rax, 1717986919
-
-	shr	rax, 32
-
-	sar	eax, 2
-
-	mov	esi, edx
-
-	sar	esi, 31
-
-	sub	eax, esi
-
-	mov	ecx, eax
-
-	mov	eax, ecx
-
-	sal	eax, 2
-
-	add	eax, ecx
-
-	add	eax, eax
-
-	mov	ecx, edx
-
-	sub	ecx, eax
-
-	mov	eax, ecx
-
-	lea	ecx, 48[rax]
-
-	mov	rdx, r13
-
-	mov	rax, r14
-
-	add	rax, rdx
-
-	mov	edx, ecx
-
-	mov	BYTE PTR [rax], dl
-
-	add	r13, 1
-
-	jmp	.L5
-
-.L8:
-
-	mov	eax, DWORD PTR -12[rbp]
-
-	movsx	rdx, eax
-
-	mov	rax, r15
-
-	add	rax, rdx
-
-	mov	rdx, r13
-
-	mov	rcx, rdx
-
-	mov	rdx, r14
-
-	add	rdx, rcx
-
-	movzx	eax, BYTE PTR [rax]
-
-	mov	BYTE PTR [rdx], al
-
-	add	r13, 1
-
+	movapd	xmm4, xmm0 #в регистре xmm4 теперь лежит значение x
+	# в edi лежит переменная times
+	mov     r12, 0 # в r12 теперь лежит значение j
+	jmp	.L2 #заходим в тело цикла
 .L5:
-
-	add	DWORD PTR -12[rbp], 1
-
+	movapd	xmm0, xmm4
+	movapd	xmm5, xmm0 # в xmm5 теперь лежит значение res, изначально res = x
+	movapd	xmm0, xmm4
+	movapd	xmm6, xmm0 # в xmm6 теперь лежит лежит значение last, изначально last = x
+	movsd	xmm0, QWORD PTR .LC0[rip]
+	movapd	xmm7, xmm0 # в xmm7 теперь лежит значение n, изначально n = 1
+	jmp	.L3
+.L4:
+	movapd	xmm1, xmm7 #xmm1 = n
+	movsd	xmm0, QWORD PTR .LC0[rip] #xmm0 = 1
+	addsd	xmm1, xmm0 # xmm1 = n + 1
+	movapd	xmm0, xmm4 #xmm0 = x
+	divsd	xmm0, xmm1 #xmm0 = x / (n+1)
+	movapd	xmm1, xmm0 #xmm1 = x / (n+1)
+	mulsd	xmm1, xmm6 #xmm1 = (x / (n+1)) * last
+	movapd	xmm2, xmm7 #xmm2 = n
+	movsd	xmm0, QWORD PTR .LC1[rip] #xmm0 = 2
+	addsd	xmm2, xmm0 #xmm2 = n + 2
+	movapd	xmm0, xmm4 #xmm0 = x
+	divsd	xmm0, xmm2 #xmm0 = x / (n+2)
+	mulsd	xmm0, xmm1 #xmm0 = (x / (n+2)) * (x / (n+1)) * last
+	movapd	xmm6, xmm0 #last = xmm0 = (x / (n+2)) * (x / (n+1)) * last
+	movapd	xmm1, xmm7 #xmm1 = n
+	movsd	xmm0, QWORD PTR .LC1[rip] #xmm0 = 2
+	addsd	xmm0, xmm1 #xmm0 = n + 2
+	movapd	xmm7, xmm0 # n = n + 2
+	movapd	xmm0, xmm5 #xmm0 = res
+	addsd	xmm0, xmm6 #xmm0 = xmm0 + last = res + last
+	movapd	xmm5, xmm0 # res = res + last
 .L3:
-
-	mov	eax, DWORD PTR -12[rbp]
-
-	cmp	eax, DWORD PTR -36[rbp]
-
-	jl	.L9
-
-	mov	rdx, r13
-
-	mov	rax, r14
-
-	add	rax, rdx
-
-	mov	BYTE PTR [rax], 0
-
-	add	DWORD PTR -8[rbp], 1
-
+	movapd	xmm0, xmm6 #xmm0 = last
+	movq	xmm1, QWORD PTR .LC2[rip]  
+	andpd	xmm0, xmm1 # находим модуль xmm0, то есть модуль last
+	comisd	xmm0, QWORD PTR .LC3[rip] #сравниваем модуль last и 0.0001
+	ja	.L4 #если |last| > 0.0001 продолжаем итерации, иначе - выходим из цикла
+	add	r12, 1 #увеличиваем значение j
 .L2:
-
-	mov	eax, DWORD PTR -8[rbp]
-
-	cmp	eax, DWORD PTR -40[rbp]
-
-	jl	.L10
-
-	mov	rax, r13
-
+	mov	rax, r12
+	cmp	rax, rdi #сравниваем текущее значение j с times
+	jl	.L5 #если j >= times кладем в rax возвращаемое значение - значение переменной res, дальше пролог и завершение работы функции
+	movapd	xmm0, xmm5
+	movq	rax, xmm0
+	movq	xmm0, rax
 	pop	rbp
-
 	ret
-
 	.size	compute, .-compute
-
-	.globl	write
-
-	.type	write, @function
-
-write:
-
-	endbr64
-
-	push	rbp
-
-	mov	rbp, rsp
-
-	sub	rsp, 48
-
-	mov	QWORD PTR -24[rbp], rdi
-
-	mov	DWORD PTR -28[rbp], esi
-
-	mov	QWORD PTR -40[rbp], rdx
-
-	mov	DWORD PTR -4[rbp], 0
-
-	jmp	.L13
-
-.L14:
-
-	mov	eax, DWORD PTR -4[rbp]
-
-	movsx	rdx, eax
-
-	mov	rax, QWORD PTR -24[rbp]
-
-	add	rax, rdx
-
-	movzx	eax, BYTE PTR [rax]
-
-	movsx	eax, al
-
-	mov	rdx, QWORD PTR -40[rbp]
-
-	mov	rsi, rdx
-
-	mov	edi, eax
-
-	call	fputc@PLT
-
-	add	DWORD PTR -4[rbp], 1
-
-.L13:
-
-	mov	eax, DWORD PTR -4[rbp]
-
-	cmp	eax, DWORD PTR -28[rbp]
-
-	jl	.L14
-
-	nop
-
-	nop
-
-	leave
-
-	ret
-
-	.size	write, .-write
-
 	.section	.rodata
-
-	.align 8
-
-.LC0:
-
-	.string	"Wrong number of arguments - %d instead of 2\n"
-
-.LC1:
-
-	.string	"--random"
-
-.LC2:
-
-	.string	"r"
-
-.LC3:
-
-	.string	"Wrong input file path"
-
 .LC4:
-
-	.string	"The text is too long"
-
+	.string	"x = %0.10lf\n"
 .LC5:
-
-	.string	"Wrong number of repeats"
-
-.LC7:
-
-	.string	"w"
-
-.LC8:
-
-	.string	"Wrong output file path"
-
-	.align 8
-
-.LC9:
-
-	.string	"Execution time is %2.3f seconds\n"
-
+	.string	"sh(x) = %0.10lf\n"
 	.text
-
-	.globl	main
-
-	.type	main, @function
-
-main:
-
+	.globl	write
+	.type	write, @function
+write:
 	endbr64
-
 	push	rbp
-
 	mov	rbp, rsp
-
-	lea	r11, -3997696[rsp]
-
-.LPSRL0:
-
-	sub	rsp, 4096
-
-	or	DWORD PTR [rsp], 0
-
-	cmp	rsp, r11
-
-	jne	.LPSRL0
-
-	sub	rsp, 2384
-
-	mov	DWORD PTR -4000068[rbp], edi # в edi лежит значение argc, мы помещаем его на стек
-
-	mov	QWORD PTR -4000080[rbp], rsi
-
-	mov	r12, 0 #в r12 теперь лежит i
-
-	cmp	DWORD PTR -4000068[rbp], 4 #проверяем корректность числа аргументов, если их не 4 - выводим сообщение об ошибке
-
-	je	.L16
-
-	mov	eax, DWORD PTR -4000068[rbp]
-
-	sub	eax, 1
-
-	mov	esi, eax
-
-	lea	rax, .LC0[rip]
-
-	mov	rdi, rax
-
-	mov	eax, 0
-
-	call	printf@PLT
-
-	mov	eax, 0
-
-	jmp	.L30
-
-.L16:
-
-	mov	rax, QWORD PTR -4000080[rbp] #проверяем первый аргумент - тот, который отвечает за ввод, с помощью сравнения со строкой "--random" которая лежит по адресу метки .LC1
-
-	add	rax, 8
-
-	mov	rax, QWORD PTR [rax] 
-
-	lea	rdx, .LC1[rip]
-
-	mov	rsi, rdx
-
-	mov	rdi, rax
-
-	call	strcmp@PLT
-
-	test	eax, eax
-
-	jne	.L18 #если строки не равны - ввод файловый, считаем переменную i
-
-	call	rand@PLT
-
-	movsx	rdx, eax
-
-	imul	rdx, rdx, 1125899907
-
-	shr	rdx, 32
-
-	sar	rdx, 18
-
-	mov	rcx, rax
-
-	sar	rcx, 31
-
-	sub	rdx, rcx
-
-	mov	r12, rdx
-
-	mov	rdx, r12
-
-	imul	rdx, rdx, 1000000
-
-	sub	rax, rdx
-
-	mov	r12, rax #в eax лежит значение i, теперь кладем его на стек и проверяем что оно не 0
-
-	cmp	r12, 0
-
-	jne	.L19 
-
-	add	r12, 1
-
-.L19:
-
-	mov	DWORD PTR -12[rbp], 0 #кладем на стек значение y для цикла
-
-	jmp	.L20
-
-.L21:
-
-	call	rand@PLT #получаем случайный символ и записываем в buf
-
-	movsx	rdx, eax
-
-	imul	rdx, rdx, -1401515643
-
-	shr	rdx, 32
-
-	add	edx, eax
-
-	sar	edx, 6
-
-	mov	ecx, eax
-
-	sar	ecx, 31
-
-	sub	edx, ecx
-
-	mov	DWORD PTR -8[rbp], edx # по адресу -8[rbp] лежит переменная ch
-
-	mov	edx, DWORD PTR -8[rbp]
-
-	imul	edx, edx, 95
-
-	sub	eax, edx
-
-	mov	DWORD PTR -8[rbp], eax
-
-	add	DWORD PTR -8[rbp], 32
-
-	mov	eax, DWORD PTR -8[rbp]
-
-	mov	edx, eax
-
-	mov	eax, DWORD PTR -12[rbp]
-
-	cdqe
-
-	mov	BYTE PTR -1000064[rbp+rax], dl #в dl лежит наш случайный символ, его кладем на последнюю позицию
-
-	add	DWORD PTR -12[rbp], 1 #увеличиваем у на 1
-
-.L20:
-
-	mov	eax, DWORD PTR -12[rbp] #проверяем что y < i
-
-	cmp	rax, r12
-
-	jl	.L21
-
-	mov	rax, r12 #после конца цикла кладем '\0' в конец buf
-
-	cdqe
-
-	mov	BYTE PTR -1000064[rbp+rax], 0
-
-	jmp	.L22
-
-.L18:
-
-	mov	rax, QWORD PTR -4000080[rbp] #пытаемся открыть файл
-
-	add	rax, 8
-
-	mov	rax, QWORD PTR [rax]
-
-	lea	rdx, .LC2[rip]
-
-	mov	rsi, rdx
-
-	mov	rdi, rax
-
-	call	fopen@PLT
-
-	mov	QWORD PTR -24[rbp], rax #кладем на стек результат открытия и проверяем, что все хорошо
-
-	cmp	QWORD PTR -24[rbp], 0
-
-	jne	.L24
-
-	lea	rax, .LC3[rip]
-
-	mov	rdi, rax
-
-	call	puts@PLT
-
-	mov	eax, 0
-
-	jmp	.L30
-
-.L26:
-
+	sub	rsp, 32
+	movsd	QWORD PTR -8[rbp], xmm0 #по адресу -8[rbp] лежит значение ans
+	movsd	QWORD PTR -16[rbp], xmm1 #по адресу -16[rbp] лежит значение x
+	mov	QWORD PTR -24[rbp], rdi #по адресу -24[rbp] лежит указатель файла для вывода, дальше идет вывод результатов 
+	mov	rdx, QWORD PTR -16[rbp]
 	mov	rax, QWORD PTR -24[rbp]
-
-	mov	rdi, rax
-
-	call	fgetc@PLT
-
-	mov	DWORD PTR -8[rbp], eax
-
-	mov	rax, r12
-
-	lea	rdx, 1[rax]
-
-	mov	r12, rdx
-
-	mov	edx, DWORD PTR -8[rbp]
-
-	cdqe
-
-	mov	BYTE PTR -1000064[rbp+rax], dl
-
-.L24:
-
-	cmp	DWORD PTR -8[rbp], -1 #проверяем что ch не -1
-
-	je	.L25
-
-	cmp	r12, 999999 #проверяем, что buf не переполнился
-
-	jle	.L26
-
-.L25:
-
-	cmp	r12, 1000000 # при переполнении сообщаем об ошибке
-
-	jne	.L27
-
-	mov	rax, r12
-
-	sub	eax, 1
-
-	cdqe
-
-	movzx	eax, BYTE PTR -1000064[rbp+rax]
-
-	cmp	al, -1
-
-	je	.L27
-
-	lea	rax, .LC4[rip]
-
-	mov	rdi, rax
-
-	call	puts@PLT
-
-	mov	eax, 0
-
-	jmp	.L30
-
-.L27:
-
-	mov	rax, r12
-
-	sub	eax, 1
-
-	cdqe
-
-	mov	BYTE PTR -1000064[rbp+rax], 0
-
-	sub	r12, 1
-
-	mov	rax, QWORD PTR -24[rbp]
-
-	mov	rdi, rax
-
-	call	fclose@PLT
-
-.L22:
-
-	mov	rax, QWORD PTR -4000080[rbp]
-
-	add	rax, 16
-
-	mov	rax, QWORD PTR [rax]
-
-	mov	rdi, rax
-
-	call	atoi@PLT
-
-	mov	DWORD PTR -28[rbp], eax
-
-	cmp	DWORD PTR -28[rbp], 0
-
-	jne	.L28
-
-	lea	rax, .LC5[rip]
-
-	mov	rdi, rax
-
-	mov	eax, 0
-
-	call	printf@PLT
-
-.L28:
-
-	call	clock@PLT
-
-	mov	QWORD PTR -40[rbp], rax
-
-	mov	ecx, DWORD PTR -28[rbp]
-
-	mov	rdx, r12
-
-	lea	rsi, -4000064[rbp]
-
-	lea	rax, -1000064[rbp]
-
-	mov	rdi, rax
-
-	call	compute
-
-	mov	r12, rax
-
-	call	clock@PLT
-
-	mov	QWORD PTR -48[rbp], rax
-
-	pxor	xmm0, xmm0
-
-	cvtsi2sd	xmm0, QWORD PTR -48[rbp]
-
-	pxor	xmm1, xmm1
-
-	cvtsi2sd	xmm1, QWORD PTR -40[rbp]
-
-	subsd	xmm0, xmm1
-
-	movsd	QWORD PTR -56[rbp], xmm0
-
-	movsd	xmm0, QWORD PTR -56[rbp]
-
-	movsd	xmm1, QWORD PTR .LC6[rip]
-
-	divsd	xmm0, xmm1
-
-	movsd	QWORD PTR -56[rbp], xmm0
-
-	mov	rax, QWORD PTR -4000080[rbp]
-
-	add	rax, 24
-
-	mov	rax, QWORD PTR [rax]
-
-	lea	rdx, .LC7[rip]
-
-	mov	rsi, rdx
-
-	mov	rdi, rax
-
-	call	fopen@PLT
-
-	mov	QWORD PTR -64[rbp], rax
-
-	cmp	QWORD PTR -64[rbp], 0
-
-	jne	.L29
-
-	lea	rax, .LC8[rip]
-
-	mov	rdi, rax
-
-	mov	eax, 0
-
-	call	printf@PLT
-
-	mov	eax, 0
-
-	jmp	.L30
-
-.L29:
-
-	mov	rdx, QWORD PTR -56[rbp]
-
-	mov	rax, QWORD PTR -64[rbp]
-
 	movq	xmm0, rdx
-
-	lea	rdx, .LC9[rip]
-
+	lea	rdx, .LC4[rip]
 	mov	rsi, rdx
-
 	mov	rdi, rax
-
 	mov	eax, 1
-
 	call	fprintf@PLT
-
-	mov	rdx, QWORD PTR -64[rbp]
-
-	mov	rcx, r12
-
-	lea	rax, -4000064[rbp]
-
-	mov	rsi, rcx
-
+	mov	rdx, QWORD PTR -8[rbp]
+	mov	rax, QWORD PTR -24[rbp]
+	movq	xmm0, rdx
+	lea	rdx, .LC5[rip]
+	mov	rsi, rdx
 	mov	rdi, rax
-
-	call	write
-
-	mov	eax, 0
-
-.L30:
-
+	mov	eax, 1
+	call	fprintf@PLT
+	nop
 	leave
-
 	ret
-
-	.size	main, .-main
-
+	.size	write, .-write
 	.section	.rodata
-
 	.align 8
-
 .LC6:
-
+	.string	"Wrong number of arguments - %d instead of 2\n"
+.LC7:
+	.string	"--random"
+.LC10:
+	.string	"r"
+.LC11:
+	.string	"Wrong input file path"
+.LC12:
+	.string	"%lf"
+.LC13:
+	.string	"Wrong number"
+.LC14:
+	.string	"Wrong number of repeats"
+.LC16:
+	.string	"w"
+.LC17:
+	.string	"Wrong output file path"
+	.align 8
+.LC18:
+	.string	"Execution time is %2.3f seconds\n"
+	.text
+	.globl	main
+	.type	main, @function
+main:
+	endbr64
+	push	rbp
+	mov	rbp, rsp
+	sub	rsp, 80
+	mov	DWORD PTR -68[rbp], edi #число параметров командной строки
+	mov	QWORD PTR -80[rbp], rsi #адрес начала аргументов
+	cmp	DWORD PTR -68[rbp], 4
+	je	.L9 #если параметров меньше 4 завершаем программу
+	mov	eax, DWORD PTR -68[rbp]
+	sub	eax, 1
+	mov	esi, eax
+	lea	rax, .LC6[rip]
+	mov	rdi, rax
+	mov	eax, 0
+	call	printf@PLT
+	mov	eax, 0
+	jmp	.L18
+.L9:
+	mov	rax, QWORD PTR -80[rbp]
+	add	rax, 8
+	mov	rax, QWORD PTR [rax]
+	lea	rdx, .LC7[rip]
+	mov	rsi, rdx
+	mov	rdi, rax
+	call	strcmp@PLT #проверяем тип ввода
+	test	eax, eax
+	jne	.L11 #если argv[1] != "--random"  - прыгаем на метку L11
+	mov	edi, 0
+	call	time@PLT
+	mov	edi, eax
+	call	srand@PLT
+	call	rand@PLT
+	pxor	xmm0, xmm0
+	cvtsi2sd	xmm0, eax #в xmm0 кладем rand()
+	movsd	xmm1, QWORD PTR .LC8[rip] #в xmm1 кладем RAND_MAX
+	divsd	xmm0, xmm1
+	movsd	QWORD PTR -64[rbp], xmm0 #в -64[rbp] хранится значение от 0 до 1
+	movsd	xmm1, QWORD PTR -64[rbp] #в xmm1 кладем x
+	movsd	xmm0, QWORD PTR .LC9[rip] #в xmm1 кладем 20
+	mulsd	xmm0, xmm1 
+	movsd	QWORD PTR -64[rbp], xmm0 #кладем в x значение 20*x
+	jmp	.L12 
+.L11:
+	mov	rax, QWORD PTR -80[rbp] #файловый ввод
+	add	rax, 8
+	mov	rax, QWORD PTR [rax]
+	lea	rdx, .LC10[rip]
+	mov	rsi, rdx
+	mov	rdi, rax
+	call	fopen@PLT #пытаемся открыть файл
+	mov	QWORD PTR -8[rbp], rax #по адресу -8[rbp] лежит указатель файла для ввода
+	cmp	QWORD PTR -8[rbp], 0
+	jne	.L13 #если не получилось открыть и функция fopen() вернула 0 - выводим сообщение об ошибке и прыгаем в конец программы
+	lea	rax, .LC11[rip]
+	mov	rdi, rax
+	call	puts@PLT
+	mov	eax, 0
+	jmp	.L18
+.L13:
+	lea	rdx, -64[rbp] 
+	mov	rax, QWORD PTR -8[rbp]
+	lea	rcx, .LC12[rip]
+	mov	rsi, rcx
+	mov	rdi, rax
+	mov	eax, 0
+	call	__isoc99_fscanf@PLT #считываем значение из файла и кладем в -64[rbp], то есть по адресу x
+	movsd	xmm0, QWORD PTR -64[rbp]
+	movq	xmm1, QWORD PTR .LC2[rip]
+	andpd	xmm0, xmm1
+	comisd	xmm0, QWORD PTR .LC9[rip] #сравниваем модуль x и 20, если он модуль х больше - выводим сообщение об ошибке и прыгаем в конец программы
+	jbe	.L20
+	lea	rax, .LC13[rip]
+	mov	rdi, rax
+	call	puts@PLT
+	mov	eax, 0
+	jmp	.L18
+.L20:
+	mov	rax, QWORD PTR -8[rbp]
+	mov	rdi, rax
+	call	fclose@PLT #закрываем файл
+.L12:
+	mov	rax, QWORD PTR -80[rbp]
+	add	rax, 16
+	mov	rax, QWORD PTR [rax]
+	mov	rdi, rax
+	call	atoi@PLT #находим число повторений
+	mov	DWORD PTR -12[rbp], eax #переменная times лежит по адресу -12[rbp]
+	cmp	DWORD PTR -12[rbp], 0 #если times == 0 - выводим сообщение об ошибке и прыгаем в конец программы
+	jne	.L16
+	lea	rax, .LC14[rip]
+	mov	rdi, rax
+	mov	eax, 0
+	call	printf@PLT
+.L16:
+	call	clock@PLT
+	mov	QWORD PTR -24[rbp], rax #по адресу -24[rbp] лежит переменная start
+	mov	rax, QWORD PTR -64[rbp]#запоминаем значение х для передачи в функцию compute
+	mov	edx, DWORD PTR -12[rbp]#запоминаем значение times для передачи в функцию compute
+	mov	edi, edx
+	movq	xmm0, rax
+	call	compute #вызываем compute
+	movq	rax, xmm0
+	mov	QWORD PTR -32[rbp], rax #по адресу -32[rbp] лежит переменная ans
+	call	clock@PLT
+	mov	QWORD PTR -40[rbp], rax #по адресу -40[rbp] лежит переменная finish
+	pxor	xmm0, xmm0
+	cvtsi2sd	xmm0, QWORD PTR -40[rbp] #кладем в xmm0 значение finish
+	pxor	xmm1, xmm1
+	cvtsi2sd	xmm1, QWORD PTR -24[rbp] #кладем в xmm1 значение start
+	subsd	xmm0, xmm1 #находим finish - start
+	movsd	QWORD PTR -48[rbp], xmm0 #по адресу -48[rbp] лежит переменная res
+	movsd	xmm0, QWORD PTR -48[rbp] 
+	movsd	xmm1, QWORD PTR .LC15[rip] 
+	divsd	xmm0, xmm1
+	movsd	QWORD PTR -48[rbp], xmm0 #кладем в переменную res значение res/CLOCKS_PER_SEC
+	mov	rax, QWORD PTR -80[rbp]
+	add	rax, 24
+	mov	rax, QWORD PTR [rax]
+	lea	rdx, .LC16[rip]
+	mov	rsi, rdx
+	mov	rdi, rax
+	call	fopen@PLT #пытаемся открыть файл для вывода
+	mov	QWORD PTR -56[rbp], rax #по адресу -56[rbp] теперь лежит указатель файла для вывода
+	cmp	QWORD PTR -56[rbp], 0 #если открыть файл не получилось - выводим сообщение об ошибке и прыгаем в конец программы
+	jne	.L17
+	lea	rax, .LC17[rip]
+	mov	rdi, rax
+	mov	eax, 0
+	call	printf@PLT
+	mov	eax, 0
+	jmp	.L18
+.L17:
+	mov	rdx, QWORD PTR -48[rbp]
+	mov	rax, QWORD PTR -56[rbp]
+	movq	xmm0, rdx
+	lea	rdx, .LC18[rip]
+	mov	rsi, rdx
+	mov	rdi, rax
+	mov	eax, 1
+	call	fprintf@PLT # выводим длительность программы
+	movsd	xmm0, QWORD PTR -64[rbp] #сохраняем для передачи в функцию write значение x
+	mov	rdx, QWORD PTR -56[rbp] #сохраняем для передачи в функцию write указатель файла для вывода
+	mov	rax, QWORD PTR -32[rbp] #сохраняем для передачи в функцию write значение ans
+	mov	rdi, rdx
+	movapd	xmm1, xmm0
+	movq	xmm0, rax
+	call	write #вызываем write и потом завершаем программу
+	mov	eax, 0
+.L18:
+	leave
+	ret
+	.size	main, .-main
+	.section	.rodata
+	.align 8
+.LC0:
 	.long	0
-
+	.long	1072693248
+	.align 8
+.LC1:
+	.long	0
+	.long	1073741824
+	.align 16
+.LC2:
+	.long	-1
+	.long	2147483647
+	.long	0
+	.long	0
+	.align 8
+.LC3:
+	.long	-350469331
+	.long	1058682594
+	.align 8
+.LC8:
+	.long	-4194304
+	.long	1105199103
+	.align 8
+.LC9:
+	.long	0
+	.long	1077149696
+	.align 8
+.LC15:
+	.long	0
 	.long	1093567616
-
-	.ident	"GCC: (Ubuntu 11.2.0-19ubuntu1) 11.2.0"
-
+	.ident	"GCC: (Ubuntu 11.3.0-1ubuntu1~22.04) 11.3.0"
 	.section	.note.GNU-stack,"",@progbits
-
 	.section	.note.gnu.property,"a"
-
 	.align 8
-
 	.long	1f - 0f
-
 	.long	4f - 1f
-
 	.long	5
-
 0:
-
 	.string	"GNU"
-
 1:
-
 	.align 8
-
 	.long	0xc0000002
-
 	.long	3f - 2f
-
 2:
-
 	.long	0x3
-
 3:
-
 	.align 8
-
 4:
