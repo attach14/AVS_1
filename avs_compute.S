@@ -1,4 +1,4 @@
-	.file	"avs_2.c"
+	.file	"avs_2_compute.c"
 	.intel_syntax noprefix
 	.text
 	.globl	compute
